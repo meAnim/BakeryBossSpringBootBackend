@@ -7,6 +7,6 @@
 		<title>BakeryBoss</title>
 	</head>
 	<body>
-		Home
+		BakeryBoss Home
 	</body>
 </html>
