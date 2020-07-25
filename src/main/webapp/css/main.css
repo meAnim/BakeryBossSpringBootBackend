@@ -1,0 +1,10 @@
+@charset "ISO-8859-1";
+
+.inputMargins{
+	margin-top:12px;
+}
+
+.error{	
+	color:red; 
+	font-weight:bold;
+} 

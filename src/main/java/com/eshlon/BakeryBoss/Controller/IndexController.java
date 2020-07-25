@@ -8,14 +8,10 @@ import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -36,32 +32,33 @@ public class IndexController {
 	@Autowired
 	BCryptPasswordEncoder bCryptPasswordEncoder;
 	
-	@RequestMapping(value = "/")
+	@RequestMapping("/")
 	public String home() {
-		return "index.jsp";
+		return "views/index.jsp";
 	}
 	
+	@RequestMapping("/register")
+	public String signup() {	
+		return "views/signup.jsp";
+	}
 	
-//	sign up a user
-	@RequestMapping(value = "/signUpuser" , method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Void> signUpuser(@ModelAttribute("user") User user){ 
-		try {
-			if(user.getPassword() != null && user.getPassword() != "" && user.getPassword().equals(user.getvPassword())) {
-				
-				user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-				user.setStatus("VERIFIED");
-				
-				Role userRole = roleRepo.findByRole("SITE_USER");
-				user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
-				
-				userRepo.save(user);
-				return new ResponseEntity<Void>(HttpStatus.CREATED);
-			}else {
-				return new ResponseEntity<Void>(HttpStatus.BAD_REQUEST);
-			}
+//	Format 2
+	@RequestMapping("/signUpuser")
+	public String signUpuser(@ModelAttribute("user") User user){ 
+		if(user.getPassword() != null && user.getPassword() != "" && user.getPassword().equals(user.getvPassword())) {
 			
-		} catch (Exception e) {
-			return new ResponseEntity<Void>(HttpStatus.BAD_REQUEST);
-		}	
-	}	
+			user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+			user.setStatus("VERIFIED");
+			
+			Role userRole = roleRepo.findByRole("SITE_USER");
+			user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
+			
+			userRepo.save(user);
+			return "views/signupSuccess.jsp";
+		}else {
+			return "/register?errorMessage=Error in inputs please make sure you have entered the correct information";
+		}
+		
+	}
+	
 }

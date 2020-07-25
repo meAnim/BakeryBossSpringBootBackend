@@ -46,29 +46,12 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
 				.csrf().disable()
 				.authorizeRequests()
 				// URLs matching for access rights
-				.antMatchers("/","/signup", "/signUpuser").permitAll()
-				.antMatchers("/resources/**", "/static/**").permitAll()
+				.antMatchers("/","/signup", "/register", "/signUpuser", "/jwtAuthentication").permitAll()
+				.antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/images/**").permitAll()
 				.antMatchers("/*.user").hasAnyAuthority("SUPER_USER", "ADMIN_USER", "SITE_USER")
 				.antMatchers("/*.admin").hasAnyAuthority("SUPER_USER", "ADMIN_USER")
 				.antMatchers("/**").hasAuthority("SUPER_USER")
-				.anyRequest().authenticated()
-				.and()
-				// form login
-				.formLogin()
-				.loginPage("/login").permitAll()
-				.usernameParameter("email")
-				.passwordParameter("password")
-				.defaultSuccessUrl("/feedback.user")
-				.and()
-				// logout
-				.logout()
-				.invalidateHttpSession(true)
-				.clearAuthentication(true)
-				.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-				.logoutSuccessUrl("/login")
-				.and()
-				.exceptionHandling()
-				.accessDeniedPage("/accessdenied");
+				.anyRequest().authenticated();
 	}
 
 }
