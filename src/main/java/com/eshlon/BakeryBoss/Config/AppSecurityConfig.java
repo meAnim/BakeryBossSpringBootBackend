@@ -45,6 +45,13 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers("/*.admin").hasAnyAuthority("SUPER_USER", "ADMIN_USER")
 				.antMatchers("/**").hasAuthority("SUPER_USER")
 				.anyRequest().authenticated()
+				.and()
+				// form login
+				.formLogin()
+				.loginPage("/login").permitAll()
+				.usernameParameter("email")
+				.passwordParameter("password")
+				.defaultSuccessUrl("/feedback.user")
 				
 	}
 	
