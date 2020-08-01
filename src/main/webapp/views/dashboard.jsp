@@ -33,7 +33,7 @@
 		        <a class="nav-link" href="/BakeryBoss/feedbackDataAPIGetAll">API</a>
 		      </li>
 		    </ul>
-		    <span class="navbar-brand">${user.getFirstname()} ${user.getLastname()}</span>
+		    
 		    
 		    <form class="form-inline my-2 my-lg-0">
 		      <!-- <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
