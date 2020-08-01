@@ -19,6 +19,7 @@ public class MyUserDetailsService implements UserDetailsService{
 	
 	@Override
 	public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
+		User user = userRepo.findByEmail(userName);
 		
 	}
 
