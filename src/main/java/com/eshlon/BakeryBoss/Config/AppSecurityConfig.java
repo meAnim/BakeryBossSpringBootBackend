@@ -52,10 +52,10 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
 				.invalidateHttpSession(true)
 				.clearAuthentication(true)
 				.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-				.logoutSuccessUrl("/login")
-				.and()
-				.exceptionHandling()
-				.accessDeniedPage("/accessdenied");
+				.logoutSuccessUrl("/login");
+//				.and()
+//				.exceptionHandling()
+//				.accessDeniedPage("/accessdenied");
 	}
 	
 }
