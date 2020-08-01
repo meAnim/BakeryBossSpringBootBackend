@@ -9,11 +9,11 @@
 		    <%@include file="../css/main.css" %> 
 		</style>
 		
-		<title>Eshlon Shop Manager</title>
+		<title>BakeryBoss</title>
 	</head>
 	<body>
 		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-		  <a class="navbar-brand" href="/SecureApp">Secure App</a>
+		  <a class="navbar-brand" href="/BakeryBoss">BakeryBoss App</a>
 		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
 		    <span class="navbar-toggler-icon"></span>
 		  </button>
@@ -26,16 +26,16 @@
 		      <!-- <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
 		      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 		      
-		      <a class="nav-link" href="/SecureApp/logout">
+		      <a class="nav-link" href="/BakeryBoss/logout">
 		      	<button class="btn btn-outline-danger my-2 my-sm-0" type="button">Log out</button>
 		      </a>-->
-		      <a class="nav-link" href="/SecureApp/register">
+		      <a class="nav-link" href="/BakeryBoss/register">
 			      <button class="btn btn-outline-success my-2 my-sm-0" type="button">Sign up</button>
 			  </a>
 		    </form>
 		  </div>
 		</nav>
-		<form class="form-signin" style="width:300px; margin:100px auto;" action="/SecureApp/login" method="post" >
+		<form class="form-signin" style="width:300px; margin:100px auto;" action="/BakeryBoss/login" method="post" >
 		  <b style="color:red;">${SPRING_SECURITY_LAST_EXCEPTION.message}</b> 
 		  <div class="text-center mb-4">
 		    <h1 class="h3 mb-3 font-weight-normal">Log In</h1>

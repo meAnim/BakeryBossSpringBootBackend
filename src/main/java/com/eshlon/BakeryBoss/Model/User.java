@@ -1,10 +1,12 @@
 package com.eshlon.BakeryBoss.Model;
 
-import java.util.Set;
+import java.util.List;
+//import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -48,13 +50,12 @@ public class User {
 	@Column(name = "status", nullable = false)
 	private String status;
 
-	@ManyToMany(cascade = CascadeType.ALL)
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(name = "auth_user_role", joinColumns = @JoinColumn(name = "auth_user_id"), inverseJoinColumns = @JoinColumn(name = "auth_role_id"))
 	
-	private Set<Role> roles;
-	
+	private List<Role> roles;
 
-	public User(String firstname, String lastname, String email, String password, String status, Set<Role> roles) {
+	public User(String firstname, String lastname, String email, String password, String status, List<Role> roles) {
 		super();
 		this.firstname = firstname;
 		this.lastname = lastname;
@@ -67,7 +68,6 @@ public class User {
 	public User() {
 		
 	}
-	
 	
 	public int getId() {
 		return id;
@@ -125,11 +125,11 @@ public class User {
 		this.status = status;
 	}
 
-	public Set<Role> getRoles() {
+	public List<Role> getRoles() {
 		return roles;
 	}
 
-	public void setRoles(Set<Role> roles) {
+	public void setRoles(List<Role> roles) {
 		this.roles = roles;
 	}
 

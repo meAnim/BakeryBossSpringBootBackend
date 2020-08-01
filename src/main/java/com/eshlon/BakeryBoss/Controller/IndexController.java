@@ -1,5 +1,6 @@
 package com.eshlon.BakeryBoss.Controller;
 
+import java.security.Principal;
 import java.util.Arrays;
 import java.util.HashSet;
 
@@ -8,6 +9,9 @@ import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -42,6 +46,10 @@ public class IndexController {
 		return "views/signup.jsp";
 	}
 	
+//	Principal principal = (Principal) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+	
+//	Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+	
 //	Format 2
 	@RequestMapping("/signUpuser")
 	public String signUpuser(@ModelAttribute("user") User user){ 
@@ -51,7 +59,7 @@ public class IndexController {
 			user.setStatus("VERIFIED");
 			
 			Role userRole = roleRepo.findByRole("SITE_USER");
-			user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
+			user.setRoles(Arrays.asList(userRole));
 			
 			userRepo.save(user);
 			return "views/signupSuccess.jsp";

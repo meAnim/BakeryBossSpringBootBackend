@@ -9,11 +9,11 @@
 		    <%@include file="../css/main.css" %> 
 		</style>
 		
-		<title>Eshlon Secure App</title>
+		<title>BakeryBoss</title>
 	</head>
 	<body>
 		<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-		  <a class="navbar-brand" href="/SecureApp">Secure App</a>
+		  <a class="navbar-brand" href="/BakeryBoss">BakeryBoss App</a>
 		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
 		    <span class="navbar-toggler-icon"></span>
 		  </button>
@@ -23,13 +23,13 @@
 		      
 		    </ul>
 		    <form class="form-inline my-2 my-lg-0">		      
-		      <a class="nav-link" href="/SecureApp/login">
+		      <a class="nav-link" href="/BakeryBoss/login">
 		      	<button class="btn btn-outline-primary my-2 my-sm-0" type="button">Log in</button>
 		      </a>
 		    </form>
 		  </div>
 		</nav>
-		<form id="userRegisForm" class="form-signin" style="width:300px; margin:100px auto;" action="/SecureApp/signUpuser" method="post" >
+		<form id="userRegisForm" class="form-signin" style="width:300px; margin:100px auto;" action="/BakeryBoss/signUpuser" method="post" >
 		  <b style="color:red;">${param.errorMessage}</b> 
 		  <div class="text-center mb-4">
 		    <h1 class="h3 mb-3 font-weight-normal">Sign Up</h1>
