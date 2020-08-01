@@ -51,7 +51,7 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
 				.loginPage("/login").permitAll()
 				.usernameParameter("email")
 				.passwordParameter("password")
-				.defaultSuccessUrl("/feedback.user")
+				.defaultSuccessUrl("/dashboard.user")
 				.and()
 				// logout
 				.logout()
