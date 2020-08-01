@@ -32,6 +32,20 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
 			.passwordEncoder(bCryptPasswordEncoder);
 	}
 
-	
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+
+			http
+				.csrf().disable()
+				.authorizeRequests()
+				// URLs matching for access rights
+				.antMatchers("/","/signup", "/register", "/signUpuser", "/jwtAuthentication").permitAll()
+				.antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/images/**").permitAll()
+				.antMatchers("/*.user").hasAnyAuthority("SUPER_USER", "ADMIN_USER", "SITE_USER")
+				.antMatchers("/*.admin").hasAnyAuthority("SUPER_USER", "ADMIN_USER")
+				.antMatchers("/**").hasAuthority("SUPER_USER")
+				.anyRequest().authenticated()
+				
+	}
 	
 }
