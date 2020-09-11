@@ -47,7 +47,7 @@
 		<form class="form-signin" style="width:300px; margin:100px auto;" action="/BakeryBoss/addFeedback.user" method="post" >
 		  <!-- <b style="color:red;">${errorMessage}</b> -->
 		  <div class="text-center mb-4">
-		    <h1 class="h3 mb-3 font-weight-normal">Feedback</h1>
+		    <h1 class="h3 mb-3 font-weight-normal">Dashboard</h1>
 		  </div>
 		
 		  <div class="form-label-group">
