@@ -45,10 +45,7 @@ public class IndexController {
 	public String signup() {	
 		return "views/signup.jsp";
 	}
-	
-//	Principal principal = (Principal) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-	
-//	Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
 	
 //	Format 2
 	@RequestMapping("/signUpuser")
