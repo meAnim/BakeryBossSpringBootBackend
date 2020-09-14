@@ -17,7 +17,7 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 //import javax.validation.constraints.NotEmpty;
 
-import com.sun.istack.NotNull;
+//import com.sun.istack.NotNull;
 
 @Entity
 @Table(name = "auth_user")
